@@ -24,25 +24,54 @@ npm install crypto-js --save
 ```
 npm install level --save
 ```
+- Install express with --save flag
+```
+npm install express --save
+```
 
 ## Testing
 
 To test code:
-1: Open a command prompt or shell terminal after install node.js.
-2: Enter a node session, also known as REPL (Read-Evaluate-Print-Loop).
 ```
-node
+node index.js
 ```
-3: Copy and paste your code into your node session
-4: Instantiate blockchain with blockchain variable
+
+## Endpoint 
+
+### GET http://localhost:8000
 ```
-let blockchain = new Blockchain();
+[
+{"endpoint":"http://127.0.0.1:8000","method":"GET","message":"The information about all endpoints"},{"endpoint":"http://127.0.0.1/block/{height}","method":"GET","message":"Get the block by height"},{"endpoint":"http://127.0.0.1/block","method":"POST","message":"Create a new block"},{"endpoint":"http://127.0.0.1/blockchain","method":"GET","message":"Get all the blocks stored in the blockchain"}
+]
 ```
-5: Generate 10 blocks using the function batchAddBlock
+
+### Endpoint GET http://localhost:8000/block/{height}
 ```
-blockchain.batchAddBlock();
+{
+"hash":"ec2944b23940b8aeff21572e2ebf52cc242688dbe42242373c574291dac8b67d",
+"height":0,"body":"First block in the chain - Genesis block","time":"1536583828","previousBlockHash":""
+}
 ```
-6: Validate blockchain
+
+### Endpoint POST http://localhost:8000/block/
+Post a new block with cur command:
 ```
-blockchain.validateChain();
+curl -X "POST" "http://localhost:8000/block"  -H 'Content-Type: application/json'  -d $'{"body": "Testing block with test string data"}'
+```
+
+Got a response like below:
+```
+{
+"hash":"a9d8bce52e1008960dea46c3b7a8bc32371718d62c4fcb69db9d5310bfb187c4",
+"height":1,"body":"Testing block with test string data",
+"time":"1536584026","previousBlockHash":"ec2944b23940b8aeff21572e2ebf52cc242688dbe42242373c574291dac8b67d"
+}
+```
+
+### Endpoint GET http://localhost:8000/blockchain
+
+```
+{
+"success":true,"message":[{"hash":"ec2944b23940b8aeff21572e2ebf52cc242688dbe42242373c574291dac8b67d","height":0,"body":"First block in the chain - Genesis block","time":"1536583828","previousBlockHash":""},{"hash":"a9d8bce52e1008960dea46c3b7a8bc32371718d62c4fcb69db9d5310bfb187c4","height":1,"body":"Testing block with test string data","time":"1536584026","previousBlockHash":"ec2944b23940b8aeff21572e2ebf52cc242688dbe42242373c574291dac8b67d"}]
+}
 ```
