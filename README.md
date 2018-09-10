@@ -41,7 +41,10 @@ node index.js
 ### GET http://localhost:8000
 ```
 [
-{"endpoint":"http://127.0.0.1:8000","method":"GET","message":"The information about all endpoints"},{"endpoint":"http://127.0.0.1/block/{height}","method":"GET","message":"Get the block by height"},{"endpoint":"http://127.0.0.1/block","method":"POST","message":"Create a new block"},{"endpoint":"http://127.0.0.1/blockchain","method":"GET","message":"Get all the blocks stored in the blockchain"}
+{"endpoint":"http://127.0.0.1:8000","method":"GET","message":"The information about all endpoints"},
+{"endpoint":"http://127.0.0.1/block/{height}","method":"GET","message":"Get the block by height"},
+{"endpoint":"http://127.0.0.1/block","method":"POST","message":"Create a new block"},
+{"endpoint":"http://127.0.0.1/blockchain","method":"GET","message":"Get all the blocks stored in the blockchain"}
 ]
 ```
 
@@ -49,7 +52,8 @@ node index.js
 ```
 {
 "hash":"ec2944b23940b8aeff21572e2ebf52cc242688dbe42242373c574291dac8b67d",
-"height":0,"body":"First block in the chain - Genesis block","time":"1536583828","previousBlockHash":""
+"height":0,"body":"First block in the chain - Genesis block",
+"time":"1536583828","previousBlockHash":""
 }
 ```
 
@@ -64,7 +68,8 @@ Got a response like below:
 {
 "hash":"a9d8bce52e1008960dea46c3b7a8bc32371718d62c4fcb69db9d5310bfb187c4",
 "height":1,"body":"Testing block with test string data",
-"time":"1536584026","previousBlockHash":"ec2944b23940b8aeff21572e2ebf52cc242688dbe42242373c574291dac8b67d"
+"time":"1536584026",
+"previousBlockHash":"ec2944b23940b8aeff21572e2ebf52cc242688dbe42242373c574291dac8b67d"
 }
 ```
 
@@ -72,6 +77,10 @@ Got a response like below:
 
 ```
 {
-"success":true,"message":[{"hash":"ec2944b23940b8aeff21572e2ebf52cc242688dbe42242373c574291dac8b67d","height":0,"body":"First block in the chain - Genesis block","time":"1536583828","previousBlockHash":""},{"hash":"a9d8bce52e1008960dea46c3b7a8bc32371718d62c4fcb69db9d5310bfb187c4","height":1,"body":"Testing block with test string data","time":"1536584026","previousBlockHash":"ec2944b23940b8aeff21572e2ebf52cc242688dbe42242373c574291dac8b67d"}]
+"success":true,"message":
+[{"hash":"ec2944b23940b8aeff21572e2ebf52cc242688dbe42242373c574291dac8b67d",
+"height":0,"body":"First block in the chain - Genesis block","time":"1536583828","previousBlockHash":""},
+{"hash":"a9d8bce52e1008960dea46c3b7a8bc32371718d62c4fcb69db9d5310bfb187c4",
+"height":1,"body":"Testing block with test string data","time":"1536584026","previousBlockHash":"ec2944b23940b8aeff21572e2ebf52cc242688dbe42242373c574291dac8b67d"}]
 }
 ```
